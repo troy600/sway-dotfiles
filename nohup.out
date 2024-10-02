@@ -1,0 +1,10 @@
+[2024-10-02 12:10:19.106] [info] Using configuration file /home/troy/.config/waybar/config.jsonc
+[2024-10-02 12:10:19.110] [info] Unable to receive desktop appearance: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “org.freedesktop.portal.Settings” on object at path /org/freedesktop/portal/desktop
+[2024-10-02 12:10:19.110] [info] Using CSS file /home/troy/.config/waybar/style.css
+[2024-10-02 12:10:19.119] [warning] Hyprland is not running, Hyprland IPC will not be available.
+[2024-10-02 12:10:19.119] [warning] module hyprland/workspaces: Disabling module "hyprland/workspaces", Hyprland IPC: HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyprland running?)
+[2024-10-02 12:10:19.119] [warning] module hyprland/mode: Unknown module: hyprland/mode
+[2024-10-02 12:10:19.119] [warning] module hyprland/window: Disabling module "hyprland/window", Hyprland IPC: HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyprland running?)
+[2024-10-02 12:10:19.127] [warning] Timezone: localtime. std::chrono::tzdb: cannot locate zone: localtime
+[2024-10-02 12:10:19.341] [info] Bar configured (width: 1280, height: 30) for output: LVDS-1
+Gdk-Message: 12:11:40.527: Error reading events from display: Broken pipe
