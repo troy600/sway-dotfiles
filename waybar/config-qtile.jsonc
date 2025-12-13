@@ -7,14 +7,14 @@
 	"passthrough": false,
 	"gtk-layer-shell": true,
 	"height": 10,
-	"modules-left": ["custom/power", "wlr/taskbar", "sway/window", "sway/mode"],
-	"modules-center": ["sway/workspaces", "sway/scratchpad"],
+	"modules-left": ["custom/power", "custom/update", "wlr/taskbar", "wlr/window"],
+	"modules-center": ["wlr/workspaces"],
 	"modules-right": [
-		"tray",
 		//"backlight",
-		"temperature",
-//		"custom/core0",
-//		"custom/core2",
+//		"temperature",
+        "tray", 
+		"custom/core0",
+		"custom/core2",
 		"battery",
         "network",
 		//"backlight",
@@ -34,23 +34,22 @@
 		"rewrite": {"Firefox Web Browser": "Firefox"}
 	},
 	"custom/power": {
-            "format" : "⏻",
+            "format" : " ⏻ ",
             "on-click": "wlogout"
            },
 	"custom/update": {
   		"exec": "~/.config/waybar/FetchUpdates.sh",
-		"on-click": "/bin/foot --app-id=cacasaver $HOME/.config/waybar/updater.sh",
   		"interval": 222,
-  		"format": "• {}"
+  		"format": " Updates: {} "
 	},
-	"sway/workspaces": {
+	"wlr/workspaces": {
 		"all-outputs": true,
 		"on-click": "activate",
 		"format-icons": {
 			"1": "h"
 		},
 		"persistent-workspaces": {
-        	"1": "a",
+        	"1": 1,
 	    	"2": 2,
 	    	"3": 3,
 	    	"4": 4,
@@ -151,18 +150,17 @@
 		"thermal-zone": 0,
 		"format": "{temperatureC}°C",
 		"critical-threshold": 90,
-		"format-critical": "Dangerous: {temperatureC}°C ",
-		"interval": 7
+		"format-critical": "Dangerous: {temperatureC}°C "
 	},
 	"custom/core0": {
   		"exec": "sensors | grep 'Core 0' | awk '{print $3}' | tr -d '+'",
   		"interval": 10,
-  		"format": "{}"
+  		"format": " {} "
 	},
 	"custom/core2": {
   		"exec": "sensors | grep 'Core 2' | awk '{print $3}' | tr -d '+'",
   		"interval": 10,
-  		"format": "{}"
+  		"format": " {} "
 	},
 	"network": {
         "interface": "wlan0",

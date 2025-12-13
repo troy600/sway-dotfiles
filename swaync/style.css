@@ -13,6 +13,11 @@
 @define-color text-color @color1;
 @define-color text-color-disabled rgb(150, 150, 150);
 @define-color bg-selected rgb(0, 128, 255);
+
+* {
+  transition: 200ms;
+}
+
 .notification-row {
   outline: none;
   opacity: 1;
@@ -35,8 +40,7 @@
   padding: 0;
   border-radius: 100%;
   margin-top: 5px;
-  margin-right: 5px;
-  box-shadow: none;
+  margin-ri@color4  box-shadow: none;
   border: none;
   min-width: 24px;
   min-height: 24px;
@@ -345,7 +349,7 @@
 }
 
 .widget-dnd > switch:checked {
-  background: @bg-selected;
+  background: @color8;
 }
 
 .widget-dnd > switch slider {
@@ -366,13 +370,14 @@
 @define-color mpris-album-art-overlay rgba(0, 0, 0, 0.55);
 @define-color mpris-button-hover rgba(0, 0, 0, 0.50);
 .widget-mpris {
-  color: @color3;
+  color: white;
   font-weight: bold;
   /* The parent to all players */
 }
 
 .widget-mpris .widget-mpris-player {
   padding: 8px;
+  color: white;
   padding: 16px;
   margin: 16px 20px;
   background-color: @mpris-album-art-overlay;
@@ -382,6 +387,7 @@
 
 .widget-mpris .widget-mpris-player button:hover {
   /* The media player buttons (play, pause, next, etc...) */
+  color: white;
   background: @noti-bg-hover;
 }
 
@@ -391,7 +397,7 @@
 }
 
 .widget-mpris .widget-mpris-player .widget-mpris-title {
-  color: @color3;
+  color: white;
   font-weight: bold;
   font-size: 1.25rem;
 }
@@ -401,7 +407,7 @@
 }
 
 .widget-mpris .widget-mpris-player > box > button {
-  color: @color6;
+  color: white;
   /* Change player control buttons */
 }
 
@@ -469,13 +475,27 @@
   border-radius: 12px;
 }
 
+
 .widget-volume > box > button {
-  background: transparent;
+  background-color: @noti-bg;
+  color: @color3;
+  background: transparent; 
   border: none;
 }
 
+.widget-volume trough highlight {
+  color: @color3;
+}
+
+slider {
+  background-color: @color6;
+  color: @color6; 
+}
+
+
 .per-app-volume {
-  background-color: @noti-bg-alt;
+  color: @color4;
+  background-color: @noti-bg;
   padding: 4px 8px 8px 8px;
   margin: 0px 8px 8px 8px;
   border-radius: 12px;

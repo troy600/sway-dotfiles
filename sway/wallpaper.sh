@@ -4,29 +4,42 @@
 
 wallpaper_dir="$(ls ~/Pictures/wallpaper)"
 wallpaper="$HOME/.cache/currentwallpaper.png"
+wallpaperblurred="$HOME/.cache/bluredcurrentwallpaper.png"
 
 # Show the menu using Rofi
 
 SelectWallpaper() {
-    chosen=$(echo -e "$wallpaper_dir" | rofi -dmenu -i -p "Choose a wallpaper:3" -l 17 )
+    chosen=$(echo -e "$wallpaper_dir" |  PREVIEW=true rofi -theme fullscreen-preview.rasi -show filebrowser -filebrowser-command 'echo' -filebrowser-directory ~/Pictures/wallpaper -modes filebrowser )
 }
 
 RandomWallpaper() {
     chosen=$(echo "$wallpaper_dir" | shuf -n 1 )
 }
 
-
+# sets the wallpaper and put the blur and wallpaper image on ~/.cache
 main() {
+	# refuses to run if no wallpaper picked
     notify-send "setting the wallpaper"
     if [[ -z "$chosen" ]]; then
 	    notify-send "you didn't pick any wallpaper"
 	    return 1
     else
-	    waypaper --wallpaper -- "$path"  &
-	    wal -i "$HOME/Pictures/wallpaper/$chosen" --saturate 1.0 -n
+		# configure the color
+#		 PREVIEW=true rofi -theme fullscreen-preview.rasi -show filebrowser -filebrowser-command 'ls' -filebrowser-directory ~/Pictures/wallpaper
+	    wal -b 000000 -i "$chosen" --saturate 0.7 --cols16 darken -n
+#	    wal -i "$chosen" -n
+
+		# kill aka reload the waybar
 	    pkill waybar
 	    waybar -c ~/.config/waybar/config-sway.jsonc &
-	    cp "$HOME/Pictures/wallpaper/$chosen" "$wallpaper"
+		sleep 3s
+
+		# sets the wallpaper
+		waypaper --wallpaper -- "$path" 
+		swaync-client -rs &
+	    cp "$chosen" "$wallpaper"
+		rm "$wallpaperblurred"
+		magick "$chosen" -blur 0x20 "$wallpaperblurred"
 fi
 }
 
@@ -37,7 +50,7 @@ if [[ -n $@ ]]; then
 	main
 else
 	SelectWallpaper
-    path="~/Pictures/wallpaper/$chosen"
+    path="$chosen"
 
 	main
 fi

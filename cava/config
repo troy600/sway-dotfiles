@@ -155,7 +155,7 @@ method = ncurses
 # Default is 'bottom'. Other orientations are only supported on sdl and ncruses
 # output. Note: many fonts have weird glyphs for 'top' and 'right' characters,
 # which can make ncurses not look right.
-; orientation = bottom
+ orientation = bottom
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -173,7 +173,7 @@ method = ncurses
 ; data_format = binary
 
 # Binary bit format, can be '8bit' (0-255) or '16bit' (0-65530).
- bit_format = 16bit
+ bit_format = 32bit
 
 # Ascii max value. In 'ascii' mode range will run from 0 to value specified here
 ; ascii_max_range = 1000
@@ -198,7 +198,7 @@ method = ncurses
 # enable alacritty synchronized updates. 1 = on, 0 = off
 # removes flickering in alacritty terminal emulator.
 # defaults to off since the behaviour in other terminal emulators is unknown
-alacritty_sync = 1
+; alacritty_sync = 1
 
 # Shaders for sdl_glsl, located in $HOME/.config/cava/shaders
 ; vertex_shader = pass_through.vert
@@ -215,7 +215,7 @@ alacritty_sync = 1
 ; show_idle_bar_heads = 1
 
 # show waveform instead of frequency spectrum, 1 = on, 0 = off
-; waveform = 0
+waveform = 0
 
 [color]
 
@@ -234,17 +234,15 @@ alacritty_sync = 1
 # Gradient mode, only hex defined colors are supported,
 # background must also be defined in hex or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
- gradient = 1
- gradient_color_1 = '#34c3eb'
- gradient_color_2 = "#3465eb"
- gradient_color_3 = '#9c34eb'
- gradient_color_4 = "#df34eb"
- gradient_color_5 = '#eb349c'
- gradient_color_6 = '#eb3456'
-gradient_color_6 = '#ff0000'
-#gradient_color_7 = '#cc5933'
-#gradient_color_8 = '#cc3333'
-
+gradient = 1
+gradient_color_1 = '#8d5cff'   ; bright electric violet
+gradient_color_2 = '#a04aff'   ; sharper purple pop
+gradient_color_3 = '#bb2cff'   ; glowing purple
+gradient_color_4 = '#d915ff'   ; insane neon magenta
+gradient_color_5 = '#ff00ff'   ; classic full magenta
+gradient_color_6 = '#ff22cc'   ; hyper pink-purple
+gradient_color_7 = '#ff4499'   ; juicy pink
+gradient_color_8 = '#ff6677'   ; warm, flashy coral-pink
 
 
 [smoothing]
@@ -252,7 +250,7 @@ gradient_color_6 = '#ff0000'
 # Percentage value for integral smoothing. Takes values from 0 - 100.
 # Higher values means smoother, but less precise. 0 to disable.
 # DEPRECATED as of 0.8.0, use noise_reduction instead
-; integral = 77
+; noise_reduction = 100
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
 ; monstercat = 0
