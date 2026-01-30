@@ -8,3 +8,4 @@ cp -rvf ~/.config/alacritty/* ./alacritty/
 cp -rvf ~/.config/gtk-3.0/* ./gtk-3.0/
 cp -rvf ~/.config/swaync/* ./swaync/
 cp -rvf ~/.config/swappy/* ./swappy/
+cp -rvf ~/.config/fastfetch/* ./fastfetch
